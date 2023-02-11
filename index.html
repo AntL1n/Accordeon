@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <title>Acordeon task Anton Zdorovets</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;            
+            font-family: 'Montserrat', sans-serif;
+        }
+        .accordion__wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;   
+            height: 100vh;
+        }
+
+        ul {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        li {
+            padding: 0;
+        }
+
+        .accordion__list {
+            background: #FFFFFF;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.02), 0px 4px 17px rgba(0, 0, 0, 0.14), 0px 4px 22px rgba(0, 0, 0, 0.12);
+            border-radius: 8px;
+            padding: 0;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .accordion {
+            margin: 0 auto;
+            width: 100%;
+
+        }
+
+
+
+
+        .accordion__control {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px;
+            width: 100%;
+            list-style: none;
+            border: 0;
+            border-bottom: 1px solid #D0DBF1;
+
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .accordion__title {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 16px;
+            line-height: 24px;
+            /* identical to box height, or 150% */
+
+
+            /* Black primary */
+
+            color: #0D2A54;
+        }
+
+        .accordion__icon {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(0);
+            transform-origin: 50% 50%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .accordion.open .accordion__icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion__content {
+            box-sizing: content-box;
+            opacity: 0;
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            border: 0;
+            border-bottom: 1px solid #D0DBF1;
+            border-top: transparent;
+            transition: all 0.3s ease-out;
+            will-change: max-height;
+            background: #FAF8F6;
+        }
+
+        .accordion.open .accordion__content {
+            opacity: 1;
+            padding: 20px;
+        }
+
+        .accordion__control::-webkit-details-marker {
+            display: none;
+        }
+
+        .accordion.open .accordion__icon::after {
+            display: none;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        .accordion-inner {}
+
+        .accordion-inner__title {
+
+            font-weight: 800;
+            font-size: 16px;
+            line-height: 24px;
+
+            color: #2B41B7;
+        }
+
+        .accordion-inner__list {}
+
+        .accordion-inner__item {}
+
+        .accordion-inner__label {}
+
+        .accordion-inner__radio {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 100%;
+            border: 2px solid #2B41B7;
+        }
+
+
+        .accordion-inner__text {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 24px;
+
+            color: #0D2A54;
+        }
+        .accordion.open path{
+            stroke:#2B41B7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="accordion__wrapper">
+            <ul class="accordion__list">
+                <li class="accordion">
+                    <button class="accordion__control" aria-expanded="false">
+                        <span class="accordion__title">The analysis</span>
+                        <span class="accordion__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L12 15L17 10" stroke="#0D2A54" stroke-width="2" />
+                            </svg>
+    
+                        </span>
+                    </button>
+                    <div class="accordion__content accordion-inner" aria-hidden="true">
+                        <h3 class="accordion-inner__title">
+                            To take into account on user level data
+                        </h3>
+                        <ul class="accordion-inner__list">
+                            <li class="accordion-inner__item">
+                                <label class="accordion-inner__label">
+                                    <span class="accordion-inner__radio"></span>
+                                    <span class="accordion-inner__text">
+                                        Do you have one user in more than one variant of the same AB test?
+                                    </span>
+                                </label>
+                            </li>
+                            <li class="accordion-inner__item">
+                                <label class="accordion-inner__label">
+                                    <span class="accordion-inner__radio"></span>
+                                    <span class="accordion-inner__text">
+                                        Do you have one user in more than one variant of the same AB test?
+                                    </span>
+                                </label>
+                            </li>
+                            <li class="accordion-inner__item">
+                                <label class="accordion-inner__label">
+                                    <span class="accordion-inner__radio"></span>
+                                    <span class="accordion-inner__text">
+                                        Do you have one user in more than one variant of the same AB test?
+                                    </span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="accordion">
+                    <button class="accordion__control" aria-expanded="false">
+                        <span class="accordion__title">Our data</span>
+                        <span class="accordion__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L12 15L17 10" stroke="#0D2A54" stroke-width="2" />
+                            </svg>
+    
+                        </span>
+                    </button>
+                    <div class="accordion__content accordion-inner" aria-hidden="true">
+                        <h3 class="accordion-inner__title">
+                            To take into account on user level data
+                        </h3>
+                        <ul class="accordion-inner__list">
+                            <li class="accordion-inner__item">
+                                <label class="accordion-inner__label">
+                                    <span class="accordion-inner__radio"></span>
+                                    <span class="accordion-inner__text">
+                                        Do you have one user in more than one variant of the same AB test?
+                                    </span>
+                                </label>
+                            </li>
+                            <li class="accordion-inner__item">
+                                <label class="accordion-inner__label">
+                                    <span class="accordion-inner__radio"></span>
+                                    <span class="accordion-inner__text">
+                                        Do you have one user in more than one variant of the same AB test?
+                                    </span>
+                                </label>
+                            </li>
+                            <li class="accordion-inner__item">
+                                <label class="accordion-inner__label">
+                                    <span class="accordion-inner__radio"></span>
+                                    <span class="accordion-inner__text">
+                                        Do you have one user in more than one variant of the same AB test?
+                                    </span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="accordion">
+                    <button class="accordion__control" aria-expanded="false">
+                        <span class="accordion__title">Our study case</span>
+                        <span class="accordion__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L12 15L17 10" stroke="#0D2A54" stroke-width="2" />
+                            </svg>
+    
+                        </span>
+                    </button>
+                    <div class="accordion__content accordion-inner" aria-hidden="true">
+                        <h3 class="accordion-inner__title">
+                            To take into account on user level data
+                        </h3>
+                        <ul class="accordion-inner__list">
+                            <li class="accordion-inner__item">
+                                <label class="accordion-inner__label">
+                                    <span class="accordion-inner__radio"></span>
+                                    <span class="accordion-inner__text">
+                                        Do you have one user in more than one variant of the same AB test?
+                                    </span>
+                                </label>
+                            </li>
+                            <li class="accordion-inner__item">
+                                <label class="accordion-inner__label">
+                                    <span class="accordion-inner__radio"></span>
+                                    <span class="accordion-inner__text">
+                                        Do you have one user in more than one variant of the same AB test?
+                                    </span>
+                                </label>
+                            </li>
+                            <li class="accordion-inner__item">
+                                <label class="accordion-inner__label">
+                                    <span class="accordion-inner__radio"></span>
+                                    <span class="accordion-inner__text">
+                                        Do you have one user in more than one variant of the same AB test?
+                                    </span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="accordion">
+                    <button class="accordion__control" aria-expanded="false">
+                        <span class="accordion__title">Hands on analyzing</span>
+                        <span class="accordion__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L12 15L17 10" stroke="#0D2A54" stroke-width="2" />
+                            </svg>
+    
+                        </span>
+                    </button>
+                    <div class="accordion__content accordion-inner" aria-hidden="true">
+                        <h3 class="accordion-inner__title">
+                            To take into account on user level data
+                        </h3>
+                        <ul class="accordion-inner__list">
+                            <li class="accordion-inner__item">
+                                <label class="accordion-inner__label">
+                                    <span class="accordion-inner__radio"></span>
+                                    <span class="accordion-inner__text">
+                                        Do you have one user in more than one variant of the same AB test?
+                                    </span>
+                                </label>
+                            </li>
+                            <li class="accordion-inner__item">
+                                <label class="accordion-inner__label">
+                                    <span class="accordion-inner__radio"></span>
+                                    <span class="accordion-inner__text">
+                                        Do you have one user in more than one variant of the same AB test?
+                                    </span>
+                                </label>
+                            </li>
+                            <li class="accordion-inner__item">
+                                <label class="accordion-inner__label">
+                                    <span class="accordion-inner__radio"></span>
+                                    <span class="accordion-inner__text">
+                                        Do you have one user in more than one variant of the same AB test?
+                                    </span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="accordion">
+                    <button class="accordion__control" aria-expanded="false">
+                        <span class="accordion__title">Initialization</span>
+                        <span class="accordion__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L12 15L17 10" stroke="#0D2A54" stroke-width="2" />
+                            </svg>
+    
+                        </span>
+                    </button>
+                    <div class="accordion__content accordion-inner" aria-hidden="true">
+                        <h3 class="accordion-inner__title">
+                            To take into account on user level data
+                        </h3>
+                        <ul class="accordion-inner__list">
+                            <li class="accordion-inner__item">
+                                <label class="accordion-inner__label">
+                                    <span class="accordion-inner__radio"></span>
+                                    <span class="accordion-inner__text">
+                                        Do you have one user in more than one variant of the same AB test?
+                                    </span>
+                                </label>
+                            </li>
+                            <li class="accordion-inner__item">
+                                <label class="accordion-inner__label">
+                                    <span class="accordion-inner__radio"></span>
+                                    <span class="accordion-inner__text">
+                                        Do you have one user in more than one variant of the same AB test?
+                                    </span>
+                                </label>
+                            </li>
+                            <li class="accordion-inner__item">
+                                <label class="accordion-inner__label">
+                                    <span class="accordion-inner__radio"></span>
+                                    <span class="accordion-inner__text">
+                                        Do you have one user in more than one variant of the same AB test?
+                                    </span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordions = document.querySelectorAll('.accordion');
+
+            accordions.forEach(el => {
+                el.addEventListener('click', (e) => {
+                    const self = e.currentTarget;
+                    const control = self.querySelector('.accordion__control');
+                    const content = self.querySelector('.accordion__content');
+
+                    self.classList.toggle('open');
+
+                    // если открыт аккордеон
+                    if (self.classList.contains('open')) {
+                        control.setAttribute('aria-expanded', true);
+                        content.setAttribute('aria-hidden', false);
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    } else {
+                        control.setAttribute('aria-expanded', false);
+                        content.setAttribute('aria-hidden', true);
+                        content.style.maxHeight = null;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
